@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+import QuizPage from './QuizPage'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 type queryResult = {
   _type: string,
@@ -43,18 +45,31 @@ function App() {
 
     fetchData();
   }, []);
+  const HomePage = () => {
+    return    <div className="App">
+    {Object.entries(courses).map(([key, value]) => {
+      return <div>
+        <h2>{key}</h2>
+        {value.map((quiz) => {
+          return <Link to = {"/" + quiz._id}>{quiz.name}</Link>
+        })}
+      </div>
+    })}
+  </div>
+  }
 
   return (
-    <div className="App">
-      {Object.entries(courses).map(([key, value]) => {
-        return <div>
-          <h2>{key}</h2>
-          {value.map((quiz) => {
-            return <div>{quiz.name}</div>
-          })}
-        </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path ="/" element = {<HomePage/>}/>
+      {Object.entries(courses).map(([key,value]) => {
+        return <>{value.map((quizRef) => {
+          return <Route path = {quizRef._id} element = {<QuizPage _id = {quizRef._id}/>}/>
+        })}</>
       })}
-    </div>
+          </Routes>
+    </BrowserRouter>
+
   );
 }
 
