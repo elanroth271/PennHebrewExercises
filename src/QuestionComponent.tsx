@@ -26,8 +26,8 @@ function QuestionComponent(props: propsType) {
         })}
     </select>
     {qParts[1]} 
-    {props.showCorrect && props.question.correct == chosenAns && <span className = {"checkmark"}>✔</span>}
-    {props.showCorrect && props.question.correct != chosenAns && <span className = {"wrongmark"}>✖</span>}
+    {props.showCorrect && props.question.correct === chosenAns && <span className = {"checkmark"}>✔</span>}
+    {props.showCorrect && props.question.correct !== chosenAns && <span className = {"wrongmark"}>✖</span>}
     </p>
 }
 

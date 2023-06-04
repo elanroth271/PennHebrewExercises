@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent} from 'react'
+import React, {useState} from 'react'
 import QuestionComponent from './QuestionComponent'
 interface propsType {
     quizSection: QuizSection;
@@ -17,7 +17,6 @@ type QuizSection = {
 
 function QuizSectionComponent(props: propsType) {
 
-    
 
     let sect = props.quizSection
 
@@ -27,6 +26,7 @@ function QuizSectionComponent(props: propsType) {
     const toggle = () => {
       setShowCorrect(!showCorrect)
     }
+
     return <div className = "QuizSection">
     <h2 className = "EngInstructions">{sect.engInstruction}</h2>
     <h2 className = "HebInstructions">{sect.hebInstruction}</h2>
