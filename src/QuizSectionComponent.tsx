@@ -1,19 +1,10 @@
 import React, {useState} from 'react'
 import QuestionComponent from './QuestionComponent'
+import {QuizSection, Question} from './types'
 interface propsType {
     quizSection: QuizSection;
 }
-type Question = {
-    text: string;
-    options: string[];
-    correct: number;
-};
-type QuizSection = {
-    engInstruction: string;
-    hebInstruction: string;
-    referenceText: string;
-    questions: Question[];
-};
+
 
 function QuizSectionComponent(props: propsType) {
 

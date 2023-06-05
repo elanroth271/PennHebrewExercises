@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
-
+import {Quiz, QuizSection, Question} from './types'
 import QuizSectionComponent from './QuizSectionComponent'
 interface PropsType {
   _id: string;
@@ -18,23 +18,8 @@ type QueryQuestion = {
   answers: string[];
 };
 
-type Question = {
-  text: string;
-  options: string[];
-  correct: number;
-};
 
-type QuizSection = {
-  engInstruction: string;
-  hebInstruction: string;
-  referenceText: string;
-  questions: Question[];
-};
 
-type Quiz = {
-  title: string;
-  sections: QuizSection[];
-};
 function QuizPage(props: PropsType) {
   const [quiz, setQuiz] = useState<Quiz>();
 

@@ -1,13 +1,11 @@
 import React, {useState, ChangeEvent} from 'react'
+import {Question} from './types'
+
 interface propsType {
     question: Question;
     showCorrect: boolean;
 }
-type Question = {
-    text: string;
-    options: string[];
-    correct: number;
-};
+
 
 
 function QuestionComponent(props: propsType) {
