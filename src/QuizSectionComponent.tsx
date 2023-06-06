@@ -22,9 +22,11 @@ function QuizSectionComponent(props: propsType) {
     <h2 className = "EngInstructions">{sect.engInstruction}</h2>
     <h2 className = "HebInstructions">{sect.hebInstruction}</h2>
     <h3 className = "ReferenceText">{sect.referenceText}</h3>
+    <div className = "QuestionsContainer">
     {sect.questions.map((q: Question) => {
       return <QuestionComponent question = {q} showCorrect = {showCorrect}/>
     })}
+    </div>
     <button onClick = {toggle}>Toggle Answers</button>
   </div>
 }

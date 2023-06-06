@@ -46,7 +46,9 @@ function App() {
     fetchData();
   }, []);
   const HomePage = () => {
-    return    <div className="App">
+    return    <div className="HomePage">
+    <h1 className = "HomePageTitle">Hebrew On The Web</h1>
+    <p className = "HomePageDesc">Welcome to the website, HEBREW ON THE WEB - Exercises for the Student of Modern Hebrew, a project of the Penn Language Center of the University of Pennsylvania. It has been funded by a grant from the Instructional Computing Development Fund and is maintained by the Penn Language Center and the Modern Hebrew Language Program of the Department of Near Eastern Languages and Civilizations.</p>
     {Object.entries(courses).map(([key, value]) => {
       return <div>
         <h2>{key}</h2>

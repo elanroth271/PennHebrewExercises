@@ -1,9 +1,12 @@
 .QuizPage {
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: rgb(228, 228, 228);;
 }
 .QuizTitle {
-  text-align: center;
+  background-color: rgb(1, 31, 91);
+  color: white;
+  padding: 10px;
 }
 .EngInstructions {
   text-align: left;
@@ -18,8 +21,62 @@
   margin-bottom: 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.336);
 }
+
+
 .Question {
   text-align: right;
+}
+.Question select {
+  font-size: 16px;
+}
+
+/* CSS */
+.QuizSection button {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.QuizSection button:hover,
+.QuizSection button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+
+.QuizSection button:hover {
+  transform: translateY(-1px);
+}
+
+.QuizSection button:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 
 .Question select {
@@ -31,3 +88,37 @@
 .wrongmark {
   color:red;
 }
+@media only screen and (min-width: 800px) {
+  .HomePage {
+    margin-left:20%;
+    margin-right:20%;
+  }
+  .QuizPage {
+    margin-left:20%;
+    margin-right:20%;
+  }
+}
+.HomePage {
+  background: rgb(228, 228, 228);
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.HomePageTitle {
+  background-color: rgb(1, 31, 91);
+  color: white;
+  padding: 10px;
+}
+.HomePageDesc {
+  font-size: larger;
+}
+
+
+#endlinefalse {
+  float:right;
+}
+#endlinetrue {
+  display: block;
+}
+

@@ -16,6 +16,7 @@ type QueryQuestion = {
   text: string;
   correct: boolean[];
   answers: string[];
+  endline: boolean;
 };
 
 
@@ -47,6 +48,7 @@ function QuizPage(props: PropsType) {
               text: qRes.text,
               options: qRes.answers,
               correct: qRes.correct.findIndex((value) => value === true),
+              endOfLine: qRes.endline
             });
           });
           tempSections.push({

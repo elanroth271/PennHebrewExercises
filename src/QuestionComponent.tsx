@@ -16,7 +16,7 @@ function QuestionComponent(props: propsType) {
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         chooseAns(Number(event.target.value))
     }
-    return <p className = "Question">{qParts[0]}
+    return <span className = "Question" id = {"endline" + props.question.endOfLine}>{qParts[0]}
     <select value = {chosenAns} onChange={handleChange}>
         <option value = {-1}>Select</option>
         {props.question.options.map((option, ind) => {
@@ -26,7 +26,8 @@ function QuestionComponent(props: propsType) {
     {qParts[1]} 
     {props.showCorrect && props.question.correct === chosenAns && <span className = {"checkmark"}>✔</span>}
     {props.showCorrect && props.question.correct !== chosenAns && <span className = {"wrongmark"}>✖</span>}
-    </p>
+    {props.question.endOfLine && <></>}
+    </span>
 }
 
 export default QuestionComponent
