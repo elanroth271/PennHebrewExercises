@@ -8,6 +8,7 @@ export interface QuizSection {
     engInstruction: string;
     hebInstruction: string;
     referenceText: string;
+    referenceAudio: string
     questions: Question[];
 };
 export interface Quiz {

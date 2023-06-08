@@ -10,6 +10,7 @@ type QuerySection = {
   instructionseng: string;
   instructionsheb: string;
   referencetext: string;
+  referenceaudio: string;
   questions: QueryQuestion[];
 };
 type QueryQuestion = {
@@ -27,19 +28,12 @@ function QuizPage(props: PropsType) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
-        const response = await fetch(
-          `${
-            process.env.REACT_APP_SANITY_QUIZ_URL_ONE +
-            props._id +
-            process.env.REACT_APP_SANITY_QUIZ_URL_TWO
-          }`
-        );
+       
+        const response = await fetch(process.env.REACT_APP_SANITY_QUIZ_URL!.replace("insert_id", props._id));
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);
         }
         const data = await response.json();
-
         let tempSections: QuizSection[] = [];
         data.result[0].sections.forEach((sectRes: QuerySection) => {
           let tempQuestions: Question[] = [];
@@ -51,10 +45,15 @@ function QuizPage(props: PropsType) {
               endOfLine: qRes.endline
             });
           });
+          let refAud = ""
+          if(sectRes.referenceaudio) {
+            refAud = sectRes.referenceaudio.split('/')[5]
+          }
           tempSections.push({
             engInstruction: sectRes.instructionseng,
             hebInstruction: sectRes.instructionsheb,
             referenceText: sectRes.referencetext,
+            referenceAudio: refAud,
             questions: tempQuestions,
           });
         });

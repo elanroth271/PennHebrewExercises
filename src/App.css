@@ -121,4 +121,9 @@
 #endlinetrue {
   display: block;
 }
+.QuizSection audio {
+  margin-top: 25px;
+  margin-bottom: 50px;
+ width: 100%;
+}
 
