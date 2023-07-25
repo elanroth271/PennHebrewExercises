@@ -9,14 +9,17 @@ interface propsType {
 
 
 function QuestionComponent(props: propsType) {
-    let qParts = (" " + props.question.text + " ").split("_")
 
+    console.log(props)
+    let qParts = (props.question.text).split("_")
+    console.log(qParts)
     const [chosenAns, chooseAns] = useState(-1)
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         chooseAns(Number(event.target.value))
     }
-    return <span className = "Question" id = {"endline" + props.question.endOfLine}>{qParts[0]}
+    return <span className = "Question" id = {"endline" + props.question.endOfLine}>
+        {" " + qParts[0]}
     <select value = {chosenAns} onChange={handleChange}>
         <option value = {-1}>Select</option>
         {props.question.options.map((option, ind) => {

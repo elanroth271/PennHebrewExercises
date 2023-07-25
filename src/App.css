@@ -25,6 +25,7 @@
 
 .Question {
   text-align: right;
+  white-space: pre;
 }
 .Question select {
   font-size: 16px;
@@ -127,3 +128,11 @@
  width: 100%;
 }
 
+.CourseDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.CourseDiv a {
+  margin-bottom: 15px;
+}

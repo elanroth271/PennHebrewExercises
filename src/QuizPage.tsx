@@ -38,6 +38,7 @@ function QuizPage(props: PropsType) {
         data.result[0].sections.forEach((sectRes: QuerySection) => {
           let tempQuestions: Question[] = [];
           sectRes.questions.forEach((qRes: QueryQuestion) => {
+            console.log(qRes)
             tempQuestions.push({
               text: qRes.text,
               options: qRes.answers,
