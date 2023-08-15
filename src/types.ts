@@ -2,16 +2,20 @@ export interface Question {
     text: string;
     options: string[];
     correct: number;
-    endOfLine: boolean;
 };
+
+export interface QuestionParagraph {
+    questions: Question[]
+}
+
 export interface QuizSection {
     engInstruction: string;
     hebInstruction: string;
     referenceText: string;
     referenceAudio: string
-    questions: Question[];
+    questionParagraphs: QuestionParagraph[];
 };
 export interface Quiz {
     title: string;
     sections: QuizSection[];
-  };
+};

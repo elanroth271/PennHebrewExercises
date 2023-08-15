@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './App.css';
-import {Quiz, QuizSection, Question} from './types'
+import {Quiz, QuizSection, Question, QuestionParagraph} from './types'
 import QuizSectionComponent from './QuizSectionComponent'
 interface PropsType {
   _id: string;
@@ -36,15 +36,18 @@ function QuizPage(props: PropsType) {
         const data = await response.json();
         let tempSections: QuizSection[] = [];
         data.result[0].sections.forEach((sectRes: QuerySection) => {
-          let tempQuestions: Question[] = [];
+          let tempQuestionsPgs: QuestionParagraph[] = [{questions: []}];
+          
           sectRes.questions.forEach((qRes: QueryQuestion) => {
-            console.log(qRes)
-            tempQuestions.push({
-              text: qRes.text,
+           
+            tempQuestionsPgs[tempQuestionsPgs.length - 1].questions.push({
+              text: "\u200F \u200F" + qRes.text + "\u200F \u200F",
               options: qRes.answers,
               correct: qRes.correct.findIndex((value) => value === true),
-              endOfLine: qRes.endline
             });
+            if(qRes.endline) {
+              tempQuestionsPgs.push({questions: []})
+            }
           });
           let refAud = ""
           if(sectRes.referenceaudio) {
@@ -55,7 +58,7 @@ function QuizPage(props: PropsType) {
             hebInstruction: sectRes.instructionsheb,
             referenceText: sectRes.referencetext,
             referenceAudio: refAud,
-            questions: tempQuestions,
+            questionParagraphs: tempQuestionsPgs,
           });
         });
         setQuiz({ title: data.result[0].name, sections: tempSections });
