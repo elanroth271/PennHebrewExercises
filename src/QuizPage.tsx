@@ -41,7 +41,7 @@ function QuizPage(props: PropsType) {
           sectRes.questions.forEach((qRes: QueryQuestion) => {
            
             tempQuestionsPgs[tempQuestionsPgs.length - 1].questions.push({
-              text: "\u200F \u200F" + qRes.text + "\u200F \u200F",
+              text:qRes.text,
               options: qRes.answers,
               correct: qRes.correct.findIndex((value) => value === true),
             });

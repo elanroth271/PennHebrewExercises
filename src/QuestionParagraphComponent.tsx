@@ -1,6 +1,6 @@
 import React, {useState, ChangeEvent} from 'react'
 import {Question} from './types'
-
+import {cleanRTLString} from './utils/stringParser'
 interface questionPropsType {
     question: Question;
     showCorrect: boolean;
@@ -20,28 +20,10 @@ function QuestionParagraphComponent(props: paragraphPropsType) {
 
 function QuestionComponent(props: questionPropsType) {
 
-    let qParts = (props.question.text).split("_")
+    let qParts = cleanRTLString(props.question.text).split("_")
 
     
-    if(qParts[0] === "\u200F \u200F") {
-        //console.log("Reversing")
-
-        qParts[0] = qParts[1]
-        qParts[1] = "\u200F \u200F"
-        //console.log(props)
-        //console.log(qParts)
-    } else if(qParts[1] === "\u200F \u200F") {
-        console.log("Reversing")
-        console.log(qParts[0].replace(/\u200F/g, '').trim()[0])
-        if(qParts[0].replace(/\u200F/g, '').trim()[0] === ".") {
-            console.log("Slicing")
-            qParts[0] =  qParts[0].replace(/\u200F/g, '').trim().slice(1)
-        }
-        qParts[1] = qParts[0] + ".\u200F"
-        qParts[0] = "\u200F \u200F"
-        console.log(props)
-        console.log(qParts)
-    }
+    
 
     const [chosenAns, chooseAns] = useState(-1)
 
