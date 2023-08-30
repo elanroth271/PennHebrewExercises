@@ -7,22 +7,30 @@ interface questionPropsType {
 }
 interface paragraphPropsType {
     questions: Question[];
-    showCorrect: boolean;
 }
 
 function QuestionParagraphComponent(props: paragraphPropsType) {
-    return <p className = "QuestionParagraph">
+
+    const [showCorrect, setShowCorrect] = useState(false)
+  
+
+    const toggle = () => {
+      setShowCorrect(!showCorrect)
+    }
+
+    return <><p className = "QuestionParagraph">
         {props.questions.map((q: Question) => {
-            return <QuestionComponent question = {q} showCorrect = {props.showCorrect}/>
+            return <QuestionComponent question = {q} showCorrect = {showCorrect}/>
         })}
     </p>
+    <button onClick = {toggle}>{showCorrect ? "Hide Answer" : "Check Answer"}</button>
+    </>
 }
 
 function QuestionComponent(props: questionPropsType) {
 
     let qParts = cleanRTLString(props.question.text).split("_")
 
-    
     
 
     const [chosenAns, chooseAns] = useState(-1)
@@ -40,7 +48,7 @@ function QuestionComponent(props: questionPropsType) {
         })}
     </select>
     {props.showCorrect && props.question.correct === chosenAns && <span className = {"checkmark"}>✔</span>}
-    {props.showCorrect && props.question.correct !== chosenAns && <span className = {"wrongmark"}>✖</span>}
+    {props.showCorrect && props.question.correct !== chosenAns && <span className = {"wrongmark"}>✖<span className = {"checkmark"}>({props.question.options[props.question.correct]})</span></span>}
     {qParts[1]} 
     </span>
 }

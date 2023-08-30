@@ -61,6 +61,7 @@ function App() {
   }
 
   return (
+    <div className="app-body">
     <BrowserRouter>
       <Routes>
         <Route path ="/" element = {<HomePage/>}/>
@@ -71,7 +72,7 @@ function App() {
       })}
           </Routes>
     </BrowserRouter>
-
+    </div>
   );
 }
 

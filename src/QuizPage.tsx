@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import './App.css';
 import {Quiz, QuizSection, Question, QuestionParagraph} from './types'
 import QuizSectionComponent from './QuizSectionComponent'
+import {Link} from 'react-router-dom';
 interface PropsType {
   _id: string;
 }
@@ -73,6 +74,7 @@ function QuizPage(props: PropsType) {
     <div className = "QuizPage">
       {quiz && (
         <>
+          <Link to = {"/"}><p className = "backLink">BACK</p></Link>
           <h1 className = "QuizTitle">{quiz.title}</h1>
           {quiz.sections.map((sect: QuizSection) => {
             

@@ -11,12 +11,7 @@ function QuizSectionComponent(props: propsType) {
 
     let sect = props.quizSection
 
-    const [showCorrect, setShowCorrect] = useState(false)
-  
 
-    const toggle = () => {
-      setShowCorrect(!showCorrect)
-    }
 
     return <div className = "QuizSection">
     <h2 className = "EngInstructions">{sect.engInstruction}</h2>
@@ -29,11 +24,9 @@ function QuizSectionComponent(props: propsType) {
     }
     <div className = "QuestionsContainer">
     {sect.questionParagraphs.map((q: QuestionParagraph) => {
-      return <QuestionParagraphComponent questions = {q.questions} showCorrect = {showCorrect}/>
+      return <QuestionParagraphComponent questions = {q.questions}/>
     })}
     </div>
-
-    <button onClick = {toggle}>Toggle Answers</button>
 
   </div>
 }

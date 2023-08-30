@@ -1,7 +1,9 @@
 .QuizPage {
   padding-right: 20px;
   padding-left: 20px;
-  background-color: rgb(228, 228, 228);;
+  background-color: rgb(255, 255, 255);
+  max-height:100%;
+  overflow:auto;
 }
 .QuizTitle {
   background-color: rgb(1, 31, 91);
@@ -67,6 +69,9 @@
   color: rgba(0, 0, 0, 0.65);
 }
 
+a:-webkit-any-link {
+  text-decoration:none
+}
 
 .QuizSection button:hover {
   transform: translateY(-1px);
@@ -100,10 +105,11 @@
   }
 }
 .HomePage {
-  background: rgb(228, 228, 228);
+  background: rgb(255, 255, 255);
   min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
+
 }
 
 .HomePageTitle {
@@ -125,7 +131,7 @@
 .QuizSection audio {
   margin-top: 25px;
   margin-bottom: 50px;
- width: 100%;
+  width: 100%;
 }
 
 .CourseDiv {
@@ -135,4 +141,12 @@
 
 .CourseDiv a {
   margin-bottom: 15px;
+}
+
+.app-body {
+  background-image: url("./IMG_0939.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
