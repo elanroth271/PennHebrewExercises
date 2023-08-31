@@ -23,7 +23,7 @@ function QuestionParagraphComponent(props: paragraphPropsType) {
             return <QuestionComponent question = {q} showCorrect = {showCorrect}/>
         })}
     </p>
-    <button onClick = {toggle}>{showCorrect ? "Hide Answer" : "Check Answer"}</button>
+    {props.questions.length > 0 && <button onClick = {toggle}>{showCorrect ? "Hide Answer" : "Check Answer"}</button>}
     </>
 }
 
