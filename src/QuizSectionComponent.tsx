@@ -8,7 +8,8 @@ interface propsType {
 
 function QuizSectionComponent(props: propsType) {
 
-
+    const [globalShowCorrect, setGlobalShowCorrect] = useState(false)
+  
     let sect = props.quizSection
 
 
@@ -24,10 +25,10 @@ function QuizSectionComponent(props: propsType) {
     }
     <div className = "QuestionsContainer">
     {sect.questionParagraphs.map((q: QuestionParagraph) => {
-      return <QuestionParagraphComponent questions = {q.questions}/>
+      return <QuestionParagraphComponent questions = {q.questions} globalShowCorrect = {globalShowCorrect}/>
     })}
     </div>
-
+    <button onClick = {() => {setGlobalShowCorrect(!globalShowCorrect)}}>{globalShowCorrect ? "Hide All" : "Check All"}</button>
   </div>
 }
 

@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent} from 'react'
+import React, {useState, ChangeEvent, useEffect} from 'react'
 import {Question} from './types'
 import {cleanRTLString} from './utils/stringParser'
 interface questionPropsType {
@@ -7,12 +7,16 @@ interface questionPropsType {
 }
 interface paragraphPropsType {
     questions: Question[];
+    globalShowCorrect: boolean;
 }
 
 function QuestionParagraphComponent(props: paragraphPropsType) {
 
     const [showCorrect, setShowCorrect] = useState(false)
-  
+    
+    useEffect(() => {
+        setShowCorrect(props.globalShowCorrect)
+    }, [props.globalShowCorrect])
 
     const toggle = () => {
       setShowCorrect(!showCorrect)
