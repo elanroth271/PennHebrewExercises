@@ -39,14 +39,14 @@ function QuizPage(props: PropsType) {
         data.result[0].sections.forEach((sectRes: QuerySection) => {
           let tempQuestionsPgs: QuestionParagraph[] = [{questions: []}];
           
-          sectRes.questions.forEach((qRes: QueryQuestion) => {
+          sectRes.questions.forEach((qRes: QueryQuestion, index: number) => {
            
             tempQuestionsPgs[tempQuestionsPgs.length - 1].questions.push({
               text:qRes.text,
               options: qRes.answers,
               correct: qRes.correct.findIndex((value) => value === true),
             });
-            if(qRes.endline) {
+            if(qRes.endline && index < sectRes.questions.length - 1) {
               tempQuestionsPgs.push({questions: []})
             }
           });
