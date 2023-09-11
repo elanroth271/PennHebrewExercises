@@ -28,7 +28,6 @@ function QuizSectionComponent(props: propsType) {
       return <QuestionParagraphComponent questions = {q.questions} globalShowCorrect = {globalShowCorrect}/>
     })}
     </div>
-    <p>{sect.questionParagraphs.length}</p>
    {sect.questionParagraphs.length > 1 && <button onClick = {() => {setGlobalShowCorrect(!globalShowCorrect)}}>{globalShowCorrect ? "Hide All" : "Check All"}</button>}
   </div>
 }
