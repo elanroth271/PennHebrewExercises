@@ -26,11 +26,16 @@ type QueryQuestion = {
 
 function QuizPage(props: PropsType) {
   const [quiz, setQuiz] = useState<Quiz>();
-  const [randBgImg, setRandImg] = useState<string>()
-  
+  const randBgImg = `assets/SamplePhotos/P${hashStringToNumber(props._id)}.jpg`
+  function hashStringToNumber(str: string) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash += str.charCodeAt(i);
+    }
+    return hash % 42 + 1; // +1 to ensure the range is 1 to 42
+}
 
   useEffect(() => {
-    setRandImg(`assets/SamplePhotos/P${Math.ceil(Math.random()*42)}.jpg`) 
     const fetchData = async () => {
       try {
        
