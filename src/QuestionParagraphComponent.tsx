@@ -1,5 +1,5 @@
 import React, {useState, ChangeEvent, useEffect} from 'react'
-import {Question} from './types'
+import {Question} from './QuizTypes'
 import {cleanRTLString} from './utils/stringParser'
 interface questionPropsType {
     question: Question;

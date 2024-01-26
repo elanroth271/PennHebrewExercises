@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import './App.css';
-import {Quiz, QuizSection, Question, QuestionParagraph} from './types'
+import {Quiz, QuizSection, Question, QuestionParagraph} from './QuizTypes'
 import QuizSectionComponent from './QuizSectionComponent'
 import {Link} from 'react-router-dom';
+
 interface PropsType {
   _id: string;
 }
@@ -25,8 +26,11 @@ type QueryQuestion = {
 
 function QuizPage(props: PropsType) {
   const [quiz, setQuiz] = useState<Quiz>();
+  const [randBgImg, setRandImg] = useState<string>()
+  
 
   useEffect(() => {
+    setRandImg(`assets/SamplePhotos/P${Math.ceil(Math.random()*42)}.jpg`) 
     const fetchData = async () => {
       try {
        
@@ -71,6 +75,10 @@ function QuizPage(props: PropsType) {
     fetchData();
   }, [props._id]);
   return (
+    <div className="HomePageContainer">
+      <div className="graphicBg">
+        <img src={randBgImg} width="100%" height="100%" />
+      </div>
     <div className = "QuizPage">
       {quiz && (
         <>
@@ -82,6 +90,7 @@ function QuizPage(props: PropsType) {
           })}
         </>
       )}
+    </div>
     </div>
   );
 }

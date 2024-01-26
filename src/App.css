@@ -106,10 +106,10 @@ a:-webkit-any-link {
 }
 .HomePage {
   background: rgb(255, 255, 255);
-  min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
-
+  height: 100vh;
+  overflow: scroll;
 }
 
 .HomePageTitle {
@@ -121,6 +121,15 @@ a:-webkit-any-link {
   font-size: larger;
 }
 
+.graphicBg {
+  position: fixed;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+}
+.graphicBg img {
+  object-fit: cover;
+}
 
 #endlinefalse {
   float:right;
@@ -144,7 +153,6 @@ a:-webkit-any-link {
 }
 
 .app-body {
-  background-image: url("./IMG_0939.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

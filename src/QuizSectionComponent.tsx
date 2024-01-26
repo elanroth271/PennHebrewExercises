@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import QuestionParagraphComponent from './QuestionParagraphComponent'
-import {QuizSection, Question, QuestionParagraph} from './types'
+import {QuizSection, Question, QuestionParagraph} from './QuizTypes'
 interface propsType {
     quizSection: QuizSection;
 }
