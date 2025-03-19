@@ -48,7 +48,7 @@ function App() {
   const HomePage = () => {
     return <div className="HomePageContainer">
       <div className="graphicBg">
-        <img src="assets/homeGraphic.jpeg" width="100%" height="100%" />
+        <img src="assets/homeGraphic.jpeg" width="100%" height="100%" alt="This is a pretty picture"/>
       </div><div className="HomePage">
         <h1 className="HomePageTitle">Hebrew On The Web</h1>
         <p className="HomePageDesc">Welcome to the website, HEBREW ON THE WEB - Exercises for the Student of Modern Hebrew, a project of the Penn Language Center of the University of Pennsylvania. It has been funded by a grant from the Instructional Computing Development Fund and is maintained by the Penn Language Center and the Modern Hebrew Language Program of the Department of Near Eastern Languages and Civilizations.</p>

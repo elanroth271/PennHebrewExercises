@@ -82,7 +82,7 @@ function QuizPage(props: PropsType) {
   return (
     <div className="HomePageContainer">
       <div className="graphicBg">
-        <img src={randBgImg} width="100%" height="100%" />
+        <img src={randBgImg} width="100%" height="100%" alt="This is a pretty picture"/>
       </div>
     <div className = "QuizPage">
       {quiz && (
